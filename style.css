@@ -430,6 +430,112 @@ button:active, button:focus {
 }
 
 /* ====================================================
+| MOBILE 
+==================================================== */
+@media (max-width: 600px) {
+    body {
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    /* Main quiz frame */
+    .quiz-container {
+        width: 100%;
+        max-width: 100%;
+        min-height: auto;       
+        height: auto;
+        padding: 15px;
+        margin-top: 10px;
+        box-sizing: border-box;
+    }
+
+   
+    .screen {
+        position: static;      
+        height: auto;
+        min-height: auto;
+        padding: 10px;
+        transform: none;     
+    }
+
+    .screen.active {
+        margin-top: 0;
+        justify-content: flex-start;
+    }
+
+    /* Question panels */
+    .question-panel {
+        width: 100%;
+        margin: 15px auto;
+        padding: 12px;
+    }
+
+    /* Buttons */
+    button {
+        width: 100%;
+        font-size: 9px;
+        padding: 10px;
+        margin-top: 20px;
+    }
+
+    /* Input field */
+    #playerName {
+        width: 100%;
+        font-size: 9px;
+        padding: 10px;
+    }
+
+    /* Options spacing */
+    .option-container {
+        gap: 10px;
+    }
+
+    .custom-radio {
+        padding: 12px 10px 12px 32px;
+        font-size: 9px;
+    }
+
+    /* Progress bar spacing */
+    #progress-bar-container {
+        padding: 0 5%;
+        margin-bottom: 15px;
+    }
+
+    /* Result screen scaling */
+    #finalClassName {
+        font-size: 1.4rem;
+        white-space: normal;   
+        border-right: none;   
+    }
+
+    #finalClassImage {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 15px;
+    }
+
+    .archetype-title {
+        font-size: 1.6rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .desc,
+    .vibe,
+    .traits {
+        font-size: 0.95rem;
+    }
+
+    .target-audience {
+        padding: 12px;
+    }
+}
+
+
+
+/* ====================================================
 | GLOBAL ANIMATIONS 
 ==================================================== */
 @keyframes characterReveal {
