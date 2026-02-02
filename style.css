@@ -434,26 +434,36 @@ button:active, button:focus {
 | 7. RESPONSIVE REPAIR (Mobile & Tablet)
 ==================================================== */
 @media screen and (max-width: 600px) {
+    .quiz-container {
+        width: 95%;          /* Fills the horizontal space you circled */
+        max-width: 98vw;     /* Ensures it doesn't poke out of the screen */
+        min-height: auto;    /* Stops it from forcing extra height */
+        padding: 20px 12px;  /* Thinner sides, so text has room to breathe */
+        margin: 5px auto;    /* Centers it with a tiny gap at the top */
+        display: block;      /* Let the content define the height naturally */
+    }
 
     #finalClassName {
-        font-size: 0.9rem !important; 
+        /* This fixes the "CH... HOLD THY FATE" cut-off */
+        font-size: 0.85rem !important; 
         white-space: nowrap !important;
-        text-align: center;
         width: 100%;
-        display: block;
-        letter-spacing: 1px;
+        text-align: center;
+        letter-spacing: 0.5px;
         animation: fadeIn 1s forwards; 
     }
 
     .archetype-title {
-        font-size: 1.5rem !important; 
-        margin-top: 10px;
+        font-size: 1.4rem !important;
+        margin: 10px 0;
+        word-wrap: break-word; /* Safety for long names like TAGAPAGSALAYSAY */
     }
 
-    /* Adjust the input box so it doesn't push the container wide */
+    /* Keeps the name input box from looking like a tiny slit */
     #playerName {
         width: 90%;
-        font-size: 10px;
+        font-size: 11px;
+        padding: 8px;
     }
 }
  
