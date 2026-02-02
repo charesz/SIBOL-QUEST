@@ -430,109 +430,41 @@ button:active, button:focus {
 }
 
 /* ====================================================
-| MOBILE 
+| 7. RESPONSIVE REPAIR (Mobile & Tablet)
 ==================================================== */
-@media (max-width: 600px) {
-    body {
-        align-items: flex-start;
-        padding: 10px;
-    }
-
-    /* Main quiz frame */
+@media screen and (max-width: 600px) {
     .quiz-container {
-        width: 100%;
-        max-width: 100%;
-        min-height: auto;       
-        height: auto;
-        padding: 15px;
-        margin-top: 10px;
-        box-sizing: border-box;
+        width: 95%;          /
+        max-width: 98vw;    
+        min-height: auto;    
+        padding: 20px 12px; 
+        margin: 5px auto;   
+        display: block;      
     }
 
-   
-    .screen {
-        position: static;      
-        height: auto;
-        min-height: auto;
-        padding: 10px;
-        transform: none;     
-    }
-
-    .screen.active {
-        margin-top: 0;
-        justify-content: flex-start;
-    }
-
-    /* Question panels */
-    .question-panel {
-        width: 100%;
-        margin: 15px auto;
-        padding: 12px;
-    }
-
-    /* Buttons */
-    button {
-        width: 100%;
-        font-size: 9px;
-        padding: 10px;
-        margin-top: 20px;
-    }
-
-    /* Input field */
-    #playerName {
-        width: 100%;
-        font-size: 9px;
-        padding: 10px;
-    }
-
-    /* Options spacing */
-    .option-container {
-        gap: 10px;
-    }
-
-    .custom-radio {
-        padding: 12px 10px 12px 32px;
-        font-size: 9px;
-    }
-
-    /* Progress bar spacing */
-    #progress-bar-container {
-        padding: 0 5%;
-        margin-bottom: 15px;
-    }
-
-    /* Result screen scaling */
     #finalClassName {
-        font-size: 1.4rem;
-        white-space: normal;   
-        border-right: none;   
-    }
-
-    #finalClassImage {
-        width: 120px;
-        height: 120px;
-        margin-bottom: 15px;
+        
+        font-size: 0.85rem !important; 
+        white-space: nowrap !important;
+        width: 100%;
+        text-align: center;
+        letter-spacing: 0.5px;
+        animation: fadeIn 1s forwards; 
     }
 
     .archetype-title {
-        font-size: 1.6rem;
+        font-size: 1.4rem !important;
+        margin: 10px 0;
+        word-wrap: break-word; 
     }
 
-    .subtitle {
-        font-size: 1rem;
-    }
-
-    .desc,
-    .vibe,
-    .traits {
-        font-size: 0.95rem;
-    }
-
-    .target-audience {
-        padding: 12px;
+   
+    #playerName {
+        width: 90%;
+        font-size: 11px;
+        padding: 8px;
     }
 }
-
 
 
 /* ====================================================
