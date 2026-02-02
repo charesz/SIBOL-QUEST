@@ -355,13 +355,24 @@ function calculateResult() {
     const quizContainer = document.querySelector('.quiz-container');
     quizContainer.style.boxShadow = `0 0 0 4px ${resultInfo.color}, 4px 4px 0 var(--pixel-border-thick) ${resultInfo.color}`;
 
-    // Result text
+    // --- Result text ---
     const finalClassNameElement = document.getElementById("finalClassName");
+    const isMobile = window.innerWidth <= 600;
+
     finalClassNameElement.innerText = `Behold thy fate, ${playerName}!`;
     finalClassNameElement.style.color = resultInfo.color;
-    finalClassNameElement.style.whiteSpace = 'nowrap';
     finalClassNameElement.style.overflow = 'hidden';
-    finalClassNameElement.style.animation = `typing ${TYPING_DELAY}s steps(${finalClassNameElement.innerText.length}, end), blink-caret 2s step-end infinite`;
+
+    // Responsive Logic 
+    if (isMobile) {
+        // Mobile: 
+        finalClassNameElement.style.whiteSpace = 'normal'; 
+        finalClassNameElement.style.animation = 'fadeIn 1s forwards'; 
+    } else {
+        // Desktop:
+        finalClassNameElement.style.whiteSpace = 'nowrap';
+        finalClassNameElement.style.animation = `typing ${TYPING_DELAY}s steps(30, end), blink-caret 2s step-end infinite`;
+    }
 
     // Flavor text
     const resultFlavorTextElement = document.getElementById("resultFlavorText");

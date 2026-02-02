@@ -315,7 +315,7 @@ button:active, button:focus {
 
 #finalClassName {
     font-size: 1.4em; margin: 20px 0 10px; min-height: 1.5em;
-    overflow: hidden; border-right: .1em solid orange; 
+    overflow: hidden;  
     white-space: nowrap; letter-spacing: .05em; animation: none; 
 }
 @keyframes typing { from { width: 0 } to { width: 80% } }
@@ -431,75 +431,97 @@ button:active, button:focus {
 
 
 /* ====================================================
-| MOBILE & TABLET ADAPTATION
+| 7. RESPONSIVE (Mobile & Tablet)
 ==================================================== */
-@media screen and (max-width: 768px) {
-    /*Make the container fill the screen width */
+@media screen and (max-width: 600px) {
     .quiz-container {
-        width: 95%;
-        max-width: none;
-        min-height: auto; /* Let it grow vertically */
-        padding: 20px 15px;
+        width: 92%;
+        max-width: 92vw; 
+        min-height: auto;
+        padding: 15px;
         margin: 10px auto;
-        border: var(--pixel-border-thin) solid var(--accent-color);
+        position: relative;
+        overflow-x: hidden; 
+        display: block; 
     }
 
-    /* Adjust Typography for smaller screens */
-    .header h1 {
-        font-size: 1rem;
-        letter-spacing: 1px;
+    #finalClassName {
+        font-size: 1.1rem !important; 
+        white-space: normal !important; 
+        height: auto;
+        line-height: 1.4;
+        animation: fadeIn 1s forwards; 
     }
 
-    .question-panel h2 {
-        font-size: 0.9rem;
-    }
-
-    /*Make Radio buttons easier to tap with thumbs */
-    .custom-radio {
-        padding: 15px 10px 15px 40px; /* More vertical space */
-        font-size: 10px;
-        line-height: 1.2;
-    }
-
-    .custom-radio::before {
-        left: 12px; /* Position the bullet better for thumbs */
-    }
-
-    /* Result Screen Image resize */
-    #finalClassImage {
-        width: 100px;
-        height: 100px;
+    #resultFlavorText {
+        width: 100%;
+        opacity: 1 !important;
     }
 
     .archetype-title {
-        font-size: 1.4rem !important;
+        font-size: 1.6rem !important; 
+        margin-top: 10px;
     }
 
-    /* Progress Bar resize */
-    #progress-bar-container {
-        padding: 0 2%;
-        gap: 5px;
+    .desc, .vibe, .traits {
+        font-size: 0.95rem !important;
+        text-align: left; 
+        padding: 0 5px;
     }
 
-    .crystal {
-        width: 6px;
-        height: 6px;
+    .target-audience ul {
+        padding-left: 15px;
+    }
+    
+    .target-audience li {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        font-size: 10px; 
     }
 }
 
-/* Extra small screens (Phones in portrait) */
-@media screen and (max-width: 480px) {
-    body {
-        padding: 5px;
-        align-items: flex-start; /* Start from top so user can scroll down */
+/* Touch-specific interaction (outside of width-based media query) */
+@media (hover: none) {
+    button:active {
+        transform: scale(0.96);
+        background-color: #843a32;
+        box-shadow: none;
     }
-    
-    .quiz-container {
-        padding: 10px;
+}
+
+/* ====================================================
+| GLOBAL ANIMATIONS 
+==================================================== */
+@keyframes characterReveal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
     }
-    
-    button {
-        width: 100%; /* Full width buttons are easier on mobile */
-        font-size: 9px;
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
     }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+    20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+@keyframes typing { from { width: 0 } to { width: 100% } }
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--text-color); }
 }
