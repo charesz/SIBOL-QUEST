@@ -428,3 +428,78 @@ button:active, button:focus {
     padding-left: 20px;
     margin-top: 10px;
 }
+
+
+/* ====================================================
+| MOBILE & TABLET ADAPTATION
+==================================================== */
+@media screen and (max-width: 768px) {
+    /*Make the container fill the screen width */
+    .quiz-container {
+        width: 95%;
+        max-width: none;
+        min-height: auto; /* Let it grow vertically */
+        padding: 20px 15px;
+        margin: 10px auto;
+        border: var(--pixel-border-thin) solid var(--accent-color);
+    }
+
+    /* Adjust Typography for smaller screens */
+    .header h1 {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .question-panel h2 {
+        font-size: 0.9rem;
+    }
+
+    /*Make Radio buttons easier to tap with thumbs */
+    .custom-radio {
+        padding: 15px 10px 15px 40px; /* More vertical space */
+        font-size: 10px;
+        line-height: 1.2;
+    }
+
+    .custom-radio::before {
+        left: 12px; /* Position the bullet better for thumbs */
+    }
+
+    /* Result Screen Image resize */
+    #finalClassImage {
+        width: 100px;
+        height: 100px;
+    }
+
+    .archetype-title {
+        font-size: 1.4rem !important;
+    }
+
+    /* Progress Bar resize */
+    #progress-bar-container {
+        padding: 0 2%;
+        gap: 5px;
+    }
+
+    .crystal {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+/* Extra small screens (Phones in portrait) */
+@media screen and (max-width: 480px) {
+    body {
+        padding: 5px;
+        align-items: flex-start; /* Start from top so user can scroll down */
+    }
+    
+    .quiz-container {
+        padding: 10px;
+    }
+    
+    button {
+        width: 100%; /* Full width buttons are easier on mobile */
+        font-size: 9px;
+    }
+}
