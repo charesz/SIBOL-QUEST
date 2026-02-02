@@ -11,7 +11,7 @@
     --pixel-border-thick: 8px;
     --shake-duration: 0.5s;
     --pixel-size: 2px;
-    --result-animation-time: 1s; /* Faster typing speed */
+    --result-animation-time: 1s; /* typing speed */
 }
 
 body {
@@ -354,7 +354,7 @@ button:active, button:focus {
 }
 
 #finalClassName {
-    font-family: 'Cinzel', serif; /* Use the fancy serif for the Title */
+    font-family: 'Cinzel', serif; /*  Title */
     font-size: 1.8rem;
     color: #ffd966;
     text-transform: uppercase;
@@ -364,10 +364,10 @@ button:active, button:focus {
 }
 
 #finalClassImage {
-    width: 160px; /* Made slightly larger */
+    width: 160px; 
     height: 160px;
     margin-bottom: 20px;
-    border: 4px double var(--accent-color); /* Double border looks more "Royal" */
+    border: 4px double var(--accent-color); /* Double border */
     background-color: rgba(0, 0, 0, 0.4);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
