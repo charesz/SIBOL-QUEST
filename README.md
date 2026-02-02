@@ -1,7 +1,7 @@
 # 🧭 Survey Quest  
 > *“Every choice is a path. Every answer, a destiny.”*
 
-[📜Begin Your Quest Here!](https://charesz.github.io/survey_quest/)
+[📜Begin Your Quest Here!](https://charesz.github.io/SIBOL-QUEST/)
 Welcome, traveler, to **Survey Quest** — an interactive adventure where your answers forge your fate.  
 What begins as a simple survey unfolds into a whimsical journey of self-discovery, riddled with quests, decisions, and the spirit of role-playing adventure.
 
@@ -26,5 +26,4 @@ Who will you become?
 -  At the journey’s end, the Oracle declares your true class based on the highest score.
 -  Your fate is revealed in a mystical scroll of pixels and prophecy.
 ---
-## 👨‍🚀 Credits
-Developed by [Mariane Charisse Cañete](https://github.com/charesz). Inspired by adventure rpg games.
+
