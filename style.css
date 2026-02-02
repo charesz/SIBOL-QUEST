@@ -430,7 +430,7 @@ button:active, button:focus {
 }
 
 /* ====================================================
-| 7. RESPONSIVE REPAIR (Mobile & Tablet)
+| 7. RESPONSIVE (Mobile & Tablet)
 ==================================================== */
 @media screen and (max-width: 600px) {
     .quiz-container {
