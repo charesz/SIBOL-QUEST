@@ -431,27 +431,36 @@ button:active, button:focus {
 
 
 /* ====================================================
-| 7. RESPONSIVE (Mobile & Tablet)
+| 7. RESPONSIVE REPAIR (Mobile & Tablet)
 ==================================================== */
 @media screen and (max-width: 600px) {
     .quiz-container {
-        width: 92%;
-        max-width: 92vw; 
-        min-height: auto;
-        padding: 15px;
-        margin: 10px auto;
-        position: relative;
-        overflow-x: hidden; 
+        width: 95%; 
+        max-width: 98vw; 
+        padding: 20px 10px; 
+        margin: 5px auto;
         display: block; 
     }
 
     #finalClassName {
-        font-size: 0.95rem !important; 
+        font-size: 0.9rem !important; 
         white-space: nowrap !important;
-        width: 100%;
         text-align: center;
-        height: auto;
+        width: 100%;
+        display: block;
+        letter-spacing: 1px;
         animation: fadeIn 1s forwards; 
+    }
+
+    .archetype-title {
+        font-size: 1.5rem !important; 
+        margin-top: 10px;
+    }
+
+    /* Adjust the input box so it doesn't push the container wide */
+    #playerName {
+        width: 90%;
+        font-size: 10px;
     }
 }
  
