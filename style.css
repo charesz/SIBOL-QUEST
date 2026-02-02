@@ -429,23 +429,6 @@ button:active, button:focus {
     margin-top: 10px;
 }
 
-
-/* ====================================================
-| 7. RESPONSIVE REPAIR (Mobile & Tablet)
-==================================================== */
-@media screen and (max-width: 600px) {
-    #finalClassName {
-        font-size: 0.85rem !important;
-        white-space: nowrap !important;
-        width: 100%;
-        text-align: center;
-        letter-spacing: 0.5px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        animation: fadeIn 1s forwards;
-    }
-}
-
 /* ====================================================
 | GLOBAL ANIMATIONS 
 ==================================================== */
