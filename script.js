@@ -173,16 +173,20 @@ const classData = {
     }
 };
 
-// --- Mapping letters A-D to classData IDs ---
+// --- Weighted Answer Mapping ---
 const answerMapping = {
-    q1: { A:1, B:2, C:6, D:7 },
-    q2: { A:2, B:7, C:3, D:4 },
-    q3: { A:3, B:1, C:2, D:6 },
-    q4: { A:4, B:2, C:6, D:7 },
-    q5: { A:5, B:1, C:2, D:3 },
-    q6: { A:6, B:1, C:2, D:7 },
-    q7: { A:7, B:1, C:2, D:3 }
+    q1: { A: {1:3, 4:1}, B: {2:3, 4:1}, C: {6:3, 1:1}, D: {7:3, 5:1} },
+    q2: { A: {2:3, 4:1}, B: {7:3, 5:1}, C: {3:3, 6:1}, D: {4:3, 1:1} },
+    q3: { A: {3:3, 4:1}, B: {1:3, 6:1}, C: {2:3, 7:1}, D: {6:3, 1:1} },
+    q4: { A: {4:3, 1:1}, B: {2:3, 3:1}, C: {6:3, 1:1}, D: {7:3, 5:1} },
+    q5: { A: {5:3, 7:1}, B: {1:3, 6:1}, C: {2:3, 4:1}, D: {3:3, 6:1} },
+    q6: { A: {6:3, 3:1}, B: {1:3, 4:1}, C: {2:3, 4:1}, D: {7:3, 5:1} },
+    q7: { A: {7:3, 5:1}, B: {1:3, 6:1}, C: {2:3, 4:1}, D: {3:3, 2:1} }
 };
+
+
+// --- Bias Normalization ---
+const archetypeExposure = {1:8,2:8,3:6,4:7,5:5,6:7,7:7};
 
 // --- Utility Functions ---
 
@@ -312,33 +316,38 @@ function submitQuiz() {
 
 // --- Result Calculation ---
 function calculateResult() {
-    console.log(`\n=== CALCULATING RESULT ===`);
-    console.log("Answers:", JSON.stringify(answers));
+    console.log('=== CALCULATING RESULT ===');
+    console.log('Answers:', answers);
 
-    // Map letters to numeric archetypes
-    for (let q in answerMapping) {
-        if (answers[q]) answers[q] = answerMapping[q][answers[q]];
-    }
-
-    // Tally points
+    // Tally weighted points
     let tally = {1:0,2:0,3:0,4:0,5:0,6:0,7:0};
-    Object.values(answers).forEach(val => tally[val]++);
-
-    // Determine max points
-    let maxPoints = -1;
-    let finalClassId = 1;
-    for (const [id, pts] of Object.entries(tally)) {
-        if (pts > maxPoints) {
-            finalClassId = Number(id); // Make sure it's a number
-            maxPoints = pts;
-        }
+    for (const q in answers) {
+        const letter = answers[q];
+        const weights = answerMapping[q][letter];
+        for (const id in weights) tally[id] += weights[id];
     }
+    console.log('Raw tally:', tally);
 
+
+    // Normalize
+    for (const id in tally) tally[id] /= archetypeExposure[id];
+    console.log('Normalized tally:', tally);
+
+    // Determine winner
+    let max = -Infinity, finalId = 1;
+    for (const [id, val] of Object.entries(tally)) {
+        if (val>max) { max=val; finalId=Number(id); }
+    }
+    console.log(`FINAL CLASS: ${finalId}`);
+
+    const result = classData[finalId];
+    if (!result) return console.error('Class data missing');
+    
     console.log(`Tally:`, tally);
-    console.log(`FINAL CLASS ID: ${finalClassId} (Score: ${maxPoints})`);
+    console.log(`FINAL CLASS ID: ${finalId} (Score: ${max})`);
 
     // Grab result info from classData
-    const resultInfo = classData[finalClassId];
+    const resultInfo = classData[finalId];
     if (!resultInfo) {
         console.error("Error: Result class data not found!");
         return;
